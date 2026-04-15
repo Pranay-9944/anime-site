@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Use CSS variable for background gradient */
+  background: var(--product-gradient, linear-gradient(135deg, #FFB74D 0%, #FFA726 100%));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +19,21 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.7s ease-in-out;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Custom Selection */
+::selection {
+  background-color: #f97316; /* Orange 500 */
+  color: white;
+}
+
+/* Hide Scrollbar for App Like Feel */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
 }
